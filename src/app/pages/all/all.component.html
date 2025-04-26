@@ -1,1 +1,19 @@
-<p>all works!</p>
+<div class="row g-4">
+    @for (item of allTrending; track $index) {
+        <div class="col-md-4 d-flex">
+            <div class="card flex-fill text-center shadow-sm border-3 rounded-4 overflow-hidden bg-white">
+            <img [src]="'https://image.tmdb.org/t/p/w500/' + item.poster_path" 
+                 class="card-img-top img-fluid object-fit-contain" 
+                 style="max-height: 200px;" 
+                 [alt]="item.title || item.name">
+            <div class="card-body">
+                <h5 class="card-title fw-bold">{{ item.title || item.name }}</h5>
+                <p class="card-text text-muted mb-2">{{ item.media_type }}</p>
+                <a [routerLink]="['/all']" routerLinkActive="router-link-active" class="btn btn-info">Details</a>
+            </div>
+            </div>
+        </div>
+    }
+      </div>
+  
+  
