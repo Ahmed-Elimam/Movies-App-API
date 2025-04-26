@@ -6,18 +6,15 @@ import { MoviesComponent } from './pages/movies/movies.component';
 import path from 'path';
 import { PeopleComponent } from './pages/people/people.component';
 import { TvComponent } from './pages/tv/tv.component';
+import { DetailsComponent } from './pages/details/details.component';
 
 export const routes: Routes = [
     {path: '', redirectTo: '/all', pathMatch: 'full'},
     {path: 'all', component: AllComponent},
-    {path: 'all/:id', component: AllComponent},
     {path: 'movies', component:MoviesComponent},
-    {path: 'movies/:id', component: MoviesComponent},
     {path: 'people', component: PeopleComponent},
-    {path: 'people/:id', component: PeopleComponent},
     {path: 'tv', component: TvComponent},
-    {path: 'tv/:id', component: TvComponent},
-
+    {path: 'details/:type/:id', component: DetailsComponent},
     {path: '**', redirectTo: '/all', pathMatch: 'full'}
 
 

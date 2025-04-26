@@ -13,7 +13,6 @@ export class TmdbService {
   constructor(private _httpClient:HttpClient) { 
   }
   getAllTrending(): Observable<any> {
-   
     return this._httpClient.get('https://api.themoviedb.org/3/trending/all/day?language=en-US',{headers:this.headers})
   }
   getTrendingMovies(): Observable<any> {
@@ -24,5 +23,8 @@ export class TmdbService {
   }
   getTrendingPeople(): Observable<any> {
     return this._httpClient.get('https://api.themoviedb.org/3/trending/person/day?language=en-US',{headers:this.headers})
+  }
+  getDetails(type:string, id:string): Observable<any>{
+    return this._httpClient.get(`https://api.themoviedb.org/3/${type}/${id}?language=en-US`,{headers:this.headers})
   }
 }

@@ -35,7 +35,7 @@
               <p class="card-text"><small>{{ item.release_date || item.first_air_date }}</small></p>
             }
             
-            <a [routerLink]="['/details', item.id]" class="btn btn-primary btn-sm mt-2">Details</a>
+            <a [routerLink]="['/details', item.media_type, item.id]" class="btn btn-primary btn-sm mt-2">Details</a>
           </div>
         </div>
       </div>

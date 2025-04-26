@@ -1,0 +1,65 @@
+<div class="container my-5">
+    @if (details) {
+      <div class="row g-4">
+        <div class="col-md-4">
+          <img 
+            [src]="'https://image.tmdb.org/t/p/w500/' + (details.poster_path || details.profile_path)" 
+            class="img-fluid rounded-4 shadow" 
+            [alt]="details.title || details.name">
+        </div>
+  
+        <div class="col-md-8">
+          <h2 class="fw-bold">
+            {{ details.title || details.name || 'No Title' }}
+          </h2>
+  
+          <p class="text-muted">
+            {{ details.media_type || details.known_for_department || 'Unknown Type' }}
+          </p>
+  
+          @if (details.overview) {
+            <p><strong>Overview:</strong> {{ details.overview }}</p>
+          }
+  
+          @if (details.biography) {
+            <p><strong>Biography:</strong> {{ details.biography }}</p>
+          }
+  
+          @if (details.release_date) {
+            <p><strong>Release Date:</strong> {{ details.release_date }}</p>
+          }
+  
+          @if (details.first_air_date) {
+            <p><strong>First Air Date:</strong> {{ details.first_air_date }}</p>
+          }
+  
+          @if (details.birthday) {
+            <p><strong>Birthday:</strong> {{ details.birthday }}</p>
+          }
+  
+          @if (details.place_of_birth) {
+            <p><strong>Place of Birth:</strong> {{ details.place_of_birth }}</p>
+          }
+  
+          @if (details.number_of_seasons) {
+            <p><strong>Number of Seasons:</strong> {{ details.number_of_seasons }}</p>
+          }
+  
+          @if (details.vote_average) {
+            <p><strong>Rating:</strong> {{ details.vote_average }}/10</p>
+          }
+  
+          @if (details.gender) {
+            <p><strong>Gender:</strong> 
+              {{ details.gender === 1 ? 'Female' : details.gender === 2 ? 'Male' : 'Other' }}
+            </p>
+          }
+  
+          <p><strong>Popularity:</strong> {{ details.popularity }}</p>
+  
+          <a [routerLink]="['/all']" class="btn btn-primary mt-3">Back to Home</a>
+        </div>
+      </div>
+    }
+  </div>
+  
