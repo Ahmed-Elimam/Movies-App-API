@@ -1,1 +1,46 @@
-<p>people works!</p>
+<div class="row g-4">
+    @for (person of trendingPeople; track $index) {
+      <div class="col-md-4 mb-3">
+        <div class="card h-100 shadow-sm">
+          <!-- Person profile image with fixed size container -->
+          <div class="image-container bg-light d-flex justify-content-center align-items-center" style="height: 250px;">
+            @if (person.profile_path) {
+              <img [src]="'https://image.tmdb.org/t/p/w500/' + person.profile_path" 
+                   class="img-fluid" 
+                   style="max-height: 250px; width: auto;"
+                   [alt]="person.name">
+            } @else {
+              <span class="text-secondary">No image available</span>
+            }
+          </div>
+          
+          <!-- Card body -->
+          <div class="card-body">
+            <h5 class="card-title">{{ person.name }}</h5>
+            
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              @if (person.known_for_department) {
+                <span class="badge bg-secondary">{{ person.known_for_department }}</span>
+              }
+              
+              @if (person.popularity) {
+                <span>👥 {{ person.popularity.toFixed(1) }}</span>
+              }
+            </div>
+            
+            @if (person.known_for && person.known_for.length > 0) {
+              <p class="card-text small">
+                <strong>Known for:</strong> 
+                {{ person.known_for[0].title || person.known_for[0].name }}
+                @if (person.known_for.length > 1) {
+                  <span> & {{ person.known_for.length - 1 }} more</span>
+                }
+              </p>
+            }
+            
+            <a [routerLink]="['/person', person.id]" class="btn btn-primary btn-sm mt-2">View Profile</a>
+          </div>
+        </div>
+      </div>
+    }
+  </div>

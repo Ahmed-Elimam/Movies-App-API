@@ -18,10 +18,10 @@ export class AllComponent implements OnInit {
       next: (data) => {
         this.allTrending = data.results;},
       error: (error) => {
-        console.error('Error fetching movies:', error);
+        console.error('Error fetching alltrends:', error);
       },
       complete: () => {
-        console.log('Movie fetch complete');
+        console.log('alltrends fetch complete');
       }})
 
     }

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TmdbService } from '../../services/tmdb.service';
 import { RouterLink } from '@angular/router';
 
@@ -8,7 +8,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
 })
-export class MoviesComponent {
+export class MoviesComponent implements OnInit {
 trendingMovies = <any>[]
   constructor(private _tmdbService:TmdbService){}
   
